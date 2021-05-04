@@ -1,7 +1,9 @@
 from django.db import models
+from flashcards_backend.collection.models import Collection
 
 
 # Create your models here.
+
 
 class Flashcard(models.Model):
     flashcard_title = models.CharField(max_length=50)
