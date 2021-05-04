@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'flashcard.apps.FlashcardConfig',
+    'collection.apps.CollectionConfig',
     'rest_framework',
     'corsheaders',
-    'collection.apps.CollectionConfig'
 ]
 
 MIDDLEWARE = [
