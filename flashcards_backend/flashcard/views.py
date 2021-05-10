@@ -17,6 +17,7 @@ class FlashcardList(APIView):
         return Response(serializer.data)
 
     def post(self, request):
+        print(request.data)
         serializer = FlashcardSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -26,14 +27,14 @@ class FlashcardList(APIView):
 
 class FlashcardDetail(APIView):
 
-    def get_object(self, pk, collection):
+    def get_object(self, fk, collection):
         try:
-            return Flashcard.objects.get(pk=pk, collection=collection)
+            return Flashcard.objects.get(collection=fk)
         except Flashcard.DoesNotExist:
             raise Http404
 
     def get(self, request, pk, collection):
-        flashcard = self.get_object(pk, collection)
+        flashcard = self.get_object(pk=pk)
         serializer = FlashcardSerializer(flashcard)
         return Response(serializer.data)
 
